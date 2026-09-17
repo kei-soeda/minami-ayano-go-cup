@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第7回 ミナミの綾野剛コンペ｜デザイン案</title>
+<meta name="description" content="第7回 ミナミの綾野剛コンペ ウェブサイトのデザイン案 Type A / B / C を比較できます。">
+<meta name="author" content="ミナミの綾野剛コンペ">
+<link rel="canonical" href="https://kei-soeda.github.io/minami-ayano-go-cup/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:site_name" content="ミナミの綾野剛コンペ">
+<meta property="og:title" content="第7回 ミナミの綾野剛コンペ｜デザイン案">
+<meta property="og:description" content="ウェブサイトのデザイン案 Type A / B / C を比較できます。">
+<meta property="og:url" content="https://kei-soeda.github.io/minami-ayano-go-cup/">
+<meta property="og:image" content="https://kei-soeda.github.io/minami-ayano-go-cup/images/emblems/type-c.png">
+<meta name="theme-color" content="#1F6B3A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1a241c;
+  --muted:#5c6b60;
+  --line:#d5e0d8;
+  --bg:#f7faf7;
+  --panel:#ffffff;
+  --accent:#1f6b3a;
+  --accent-deep:#164f2b;
+  --gold:#c9a45c;
+  --neon:#ff4fd8;
+  --green:#1f6b3a;
+  --jp:"Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif;
+  --display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  min-height:100vh;
+  color:var(--ink);
+  font-family:var(--jp);
+  background:
+    radial-gradient(ellipse 80% 50% at 10% -10%,rgba(31,107,58,.12),transparent 55%),
+    radial-gradient(ellipse 70% 45% at 90% 0%,rgba(201,164,92,.14),transparent 50%),
+    linear-gradient(180deg,var(--bg) 0%,#eef4ef 100%);
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%;height:auto}
+.wrap{width:min(1100px,calc(100% - 2.5rem));margin:0 auto}
+
+.hero{
+  padding:clamp(3rem,8vw,5.5rem) 0 clamp(2rem,5vw,3rem);
+  text-align:center;
+}
+.hero .eyebrow{
+  display:inline-block;
+  margin-bottom:.85rem;
+  font-size:.78rem;
+  font-weight:700;
+  letter-spacing:.18em;
+  color:var(--accent);
+}
+.hero h1{
+  font-family:var(--display);
+  font-weight:700;
+  font-size:clamp(1.75rem,4.5vw,2.75rem);
+  letter-spacing:.04em;
+  line-height:1.35;
+}
+.hero p{
+  margin:1rem auto 0;
+  max-width:36rem;
+  color:var(--muted);
+  font-size:.98rem;
+}
+
+.grid{
+  display:grid;
+  gap:1.25rem;
+  grid-template-columns:1fr;
+  padding-bottom:clamp(3rem,8vw,5rem);
+}
+@media (min-width:760px){
+  .grid{grid-template-columns:repeat(3,1fr);gap:1.5rem}
+}
+
+.card{
+  display:flex;
+  flex-direction:column;
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 18px 40px -28px rgba(22,79,43,.45);
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+.card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 24px 48px -24px rgba(22,79,43,.5);
+}
+.card .preview{
+  aspect-ratio:1;
+  display:grid;
+  place-items:center;
+  padding:1.5rem;
+}
+.card[data-type="a"] .preview{background:#0b0b0b}
+.card[data-type="b"] .preview{background:#050505}
+.card[data-type="c"] .preview{background:#164f2b}
+.card .preview img{
+  width:min(100%,280px);
+  border-radius:50%;
+}
+.card .body{
+  display:flex;
+  flex-direction:column;
+  gap:.65rem;
+  padding:1.25rem 1.35rem 1.45rem;
+  flex:1;
+}
+.card .label{
+  font-size:.72rem;
+  font-weight:700;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+.card[data-type="a"] .label{color:var(--gold)}
+.card[data-type="b"] .label{color:var(--neon)}
+.card[data-type="c"] .label{color:var(--green)}
+.card h2{
+  font-family:var(--display);
+  font-size:1.25rem;
+  letter-spacing:.03em;
+}
+.card .desc{
+  color:var(--muted);
+  font-size:.9rem;
+  flex:1;
+}
+.card .cta{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  margin-top:.35rem;
+  padding:.85rem 1rem;
+  border-radius:999px;
+  background:var(--accent);
+  color:#fff;
+  font-weight:700;
+  font-size:.92rem;
+  letter-spacing:.04em;
+  transition:background .2s ease;
+}
+.card:hover .cta{background:var(--accent-deep)}
+
+.foot{
+  border-top:1px solid var(--line);
+  padding:1.5rem 0 2.5rem;
+  text-align:center;
+  color:var(--muted);
+  font-size:.82rem;
+}
+</style>
+</head>
+<body>
+  <header class="hero wrap">
+    <p class="eyebrow">DESIGN REVIEW</p>
+    <h1>第7回 ミナミの綾野剛コンペ<br>デザイン案</h1>
+    <p>ChatGPT で作成した Type A / B / C の3案です。エンブレムを確認して、気になる案を開いてください。</p>
+  </header>
+
+  <main class="wrap grid">
+    <a class="card" data-type="a" href="type-a.html">
+      <div class="preview">
+        <img src="images/emblems/type-a.png" alt="Type A エンブレム：フィルムリールとゴルフフラッグ" width="280" height="280" loading="eager">
+      </div>
+      <div class="body">
+        <p class="label">Type A</p>
+        <h2>シネマ・ゴールド</h2>
+        <p class="desc">黒と金のフィルムクレジット調。オープニング演出つきの重厚な世界観。</p>
+        <span class="cta">この案を見る</span>
+      </div>
+    </a>
+
+    <a class="card" data-type="b" href="type-b.html">
+      <div class="preview">
+        <img src="images/emblems/type-b.png" alt="Type B エンブレム：ネオンのグラスとゴルフボール" width="280" height="280" loading="lazy">
+      </div>
+      <div class="body">
+        <p class="label">Type B</p>
+        <h2>ネオン・バー</h2>
+        <p class="desc">ナイトライフのネオンサイン風。ミナミのバー文化とゴルフを重ねた印象。</p>
+        <span class="cta">この案を見る</span>
+      </div>
+    </a>
+
+    <a class="card" data-type="c" href="type-c.html">
+      <div class="preview">
+        <img src="images/emblems/type-c.png" alt="Type C エンブレム：緑のコースとゴルフフラッグ" width="280" height="280" loading="lazy">
+      </div>
+      <div class="body">
+        <p class="label">Type C</p>
+        <h2>フレッシュ・グリーン</h2>
+        <p class="desc">緑とイエローの明快なゴルフコンペ感。情報整理しやすいスタンダード案。</p>
+        <span class="cta">この案を見る</span>
+      </div>
+    </a>
+  </main>
+
+  <footer class="foot wrap">
+    <p>第7回 ミナミの綾野剛コンペ｜2026年11月25日（水）開催予定</p>
+  </footer>
+</body>
+</html>
