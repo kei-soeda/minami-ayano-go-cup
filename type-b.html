@@ -58,7 +58,7 @@
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:72px;overflow-x:hidden}
+html{scroll-behavior:smooth;scroll-padding-top:88px;overflow-x:hidden}
 body{
   background:var(--night);color:var(--text);
   font-family:var(--jp);font-weight:400;font-size:15px;line-height:1.95;letter-spacing:.02em;
@@ -117,10 +117,17 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   transition:background .4s ease,border-color .4s ease;border-bottom:1px solid transparent;
 }
 .hdr.is-scrolled{background:rgba(7,7,12,.92);border-bottom-color:rgba(255,46,136,.35);backdrop-filter:blur(8px)}
-.hdr-bar{display:flex;align-items:center;justify-content:space-between;gap:16px;height:68px}
-.brand{display:flex;align-items:center;gap:10px;text-decoration:none;min-width:0}
-.brand img{width:38px;height:38px;flex:none;object-fit:contain}
-.brand-name{font-family:var(--en);font-size:1.35rem;letter-spacing:.08em;white-space:nowrap;line-height:1}
+.hdr-bar{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:76px;padding:8px 0}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;min-width:0}
+.brand-mark{
+  width:52px;height:52px;flex:none;border-radius:50%;
+  box-shadow:0 0 0 1.5px rgba(255,46,136,.75),0 0 14px rgba(255,46,136,.55),0 0 28px rgba(25,230,230,.28);
+  background:#050505;
+}
+.brand-mark img{width:100%;height:100%;object-fit:cover;border-radius:50%;display:block}
+.brand-text{display:flex;flex-direction:column;gap:.15rem;min-width:0;line-height:1.1}
+.brand-name{font-family:var(--en);font-size:1.35rem;letter-spacing:.08em;white-space:nowrap}
+.brand-jp{font-size:.72rem;font-weight:700;letter-spacing:.12em;color:var(--cyan);white-space:nowrap}
 .hdr-actions{display:flex;align-items:center;gap:12px}
 .hdr-entry{
   font-family:var(--en);font-size:1.05rem;letter-spacing:.1em;text-decoration:none;white-space:nowrap;
@@ -439,7 +446,7 @@ html.nav-open,html.nav-open body{overflow:hidden}
 .footer{position:relative;background:var(--panel-2);padding:clamp(56px,8vw,80px) 0 28px}
 .footer::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:linear-gradient(90deg,transparent,var(--pink) 20%,var(--cyan) 80%,transparent);box-shadow:0 0 14px rgba(255,46,136,.6)}
 .foot-grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) minmax(0,1fr);gap:40px}
-.foot-brand img{width:56px;height:56px;object-fit:contain;margin-bottom:.8rem}
+.foot-brand .brand-mark{width:72px;height:72px;margin-bottom:.9rem}
 .foot-brand .nm{font-family:var(--en);font-size:1.6rem;letter-spacing:.06em;color:var(--white);line-height:1}
 .foot-brand .jp{font-weight:700;color:var(--white);margin-top:.3rem}
 .foot-brand p{font-size:.86rem;margin-top:1rem;max-width:28em}
@@ -466,7 +473,9 @@ html.nav-open,html.nav-open body{overflow:hidden}
 }
 @media(max-width:640px){
   body{font-size:14px}
+  .brand-mark{width:46px;height:46px}
   .brand-name{font-size:1.1rem}
+  .brand-jp{font-size:.66rem;letter-spacing:.08em}
   .menu-btn .label{display:none}
   .hero-inner{padding-top:96px}
   .hero-copy{font-size:clamp(1.05rem,5.4vw,1.35rem);letter-spacing:.04em}
@@ -487,7 +496,8 @@ html.nav-open,html.nav-open body{overflow:hidden}
   .btn-neon{padding:.7em 1.6em}
 }
 @media(max-width:380px){
-  .brand-name{display:none}
+  .brand-text{display:none}
+  .brand-mark{width:48px;height:48px}
   .badges{grid-template-columns:1fr}
 }
 @media(prefers-reduced-motion:reduce){
@@ -505,8 +515,13 @@ html.nav-open,html.nav-open body{overflow:hidden}
 <header class="hdr" id="hdr">
   <div class="wrap hdr-bar">
     <a href="#top" class="brand" aria-label="MIDNIGHT MINAMI OPEN トップへ">
-      <img src="images/icon/logo.svg?v=20260917" alt="" width="38" height="38" data-optional>
-      <span class="brand-name">MIDNIGHT MINAMI OPEN</span>
+      <span class="brand-mark" aria-hidden="true">
+        <img src="images/emblems/type-b.png" alt="" width="52" height="52">
+      </span>
+      <span class="brand-text">
+        <span class="brand-name">MIDNIGHT MINAMI OPEN</span>
+        <span class="brand-jp">ミナミの綾野剛コンペ</span>
+      </span>
     </a>
     <div class="hdr-actions">
       <a href="#entry" class="hdr-entry">ENTRY</a>
@@ -871,7 +886,9 @@ html.nav-open,html.nav-open body{overflow:hidden}
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-brand">
-        <img src="images/icon/logo.svg?v=20260917" alt="" width="56" height="56" data-optional>
+        <div class="brand-mark" aria-hidden="true">
+          <img src="images/emblems/type-b.png" alt="" width="72" height="72">
+        </div>
         <p class="nm">MIDNIGHT MINAMI OPEN</p>
         <p class="jp">ミナミの綾野剛コンペ</p>
         <p>ミナミの夜から生まれた、「誰かの何かのキッカケに」をコンセプトにしたゴルフコンペです。年6回開催。</p>
