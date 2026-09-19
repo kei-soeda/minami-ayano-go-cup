@@ -1,24 +1,28 @@
-# 第7回 ミナミの綾野剛コンペ（デザイン案）
+# 第7回 ミナミの綾野剛コンペ
 
-ChatGPT で作成したウェブサイトのデザイン案（Type A / B / C）を GitHub Pages で比較できます。
+`index.html` が本番サイト（HTML・CSS・JS を1ファイルにまとめた構成、外部依存は Google Fonts のみ）。
+B案（深夜ミナミ風）の構成をベースに、A案のブラック＋ゴールドの配色とウッド調を加えたデザイン。
+
+制作指示書・デザイン指示書はリポジトリ直下の `.md` を参照。
 
 ## 構成
 
 | ファイル | 内容 |
 | --- | --- |
-| `index.html` | デザイン案の比較トップ |
-| `type-a.html` | Type A（シネマ・ゴールド） |
-| `type-b.html` | Type B（ネオン・バー） |
-| `type-c.html` | Type C（フレッシュ・グリーン） |
-| `images/emblems/` | 各案のエンブレム画像 |
-| `images/icon/` | favicon / OGP 用（未配置） |
+| `index.html` | 本番サイト（第7回 参加者募集中） |
+| `designs.html` | 旧デザイン案（Type A / B / C）の比較トップ |
+| `type-a.html` / `type-b.html` / `type-c.html` | 旧デザイン案 |
+| `images/emblems/` | 旧デザイン案のエンブレム画像 |
+| `images/icon/` | favicon / apple-touch-icon / OGP 用（未配置） |
+
+## 未確定項目の洗い出し
+
+`index.html` を `【` で全文検索すると、差し替え待ちの箇所が一覧できます。
 
 ## 公開 URL
 
-- トップ: https://kei-soeda.github.io/minami-ayano-go-cup/
-- Type A: https://kei-soeda.github.io/minami-ayano-go-cup/type-a.html
-- Type B: https://kei-soeda.github.io/minami-ayano-go-cup/type-b.html
-- Type C: https://kei-soeda.github.io/minami-ayano-go-cup/type-c.html
+- 本番: https://kei-soeda.github.io/minami-ayano-go-cup/
+- 旧デザイン案: https://kei-soeda.github.io/minami-ayano-go-cup/designs.html
 
 ## ローカル確認
 
