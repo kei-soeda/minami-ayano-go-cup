@@ -252,9 +252,13 @@ html.nav-open body{
 
 /* ---------- THE MASTER ---------- */
 .master{display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);gap:clamp(32px,5vw,72px);align-items:center}
-.master-photo{aspect-ratio:4/5;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;
-  color:var(--text-muted);font-size:.78rem;text-align:center;padding:1rem;background:var(--bg);border:1px solid var(--gold);border-radius:4px}
-.master-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.master-photo{aspect-ratio:11/16;position:relative;margin-bottom:28px;background:var(--bg);border:1px solid var(--gold);border-radius:4px}
+.master-photo .slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:3px;opacity:0;transition:opacity 1.2s ease}
+.master-photo .slide.is-active{opacity:1}
+.master-photo .slide--golf{object-position:center 40%}
+.slide-dots{position:absolute;left:0;right:0;bottom:-24px;display:flex;justify-content:center;gap:10px}
+.slide-dots button{width:8px;height:8px;padding:0;border-radius:50%;background:rgba(11,11,11,.55);box-shadow:0 0 0 1px var(--gold);transition:background .3s}
+.slide-dots button[aria-current="true"]{background:var(--gold)}
 .master-name{font-family:var(--mincho);font-weight:600;font-size:clamp(1.9rem,4.6vw,2.8rem);letter-spacing:.14em;line-height:1.35;color:var(--text)}
 .master-titles{list-style:none;margin-top:.9rem;border-left:2px solid var(--gold);padding-left:1rem;color:var(--text-muted);font-size:.92rem}
 .master-profile{margin-top:1.6rem;max-width:36em;color:var(--text-muted)}
@@ -607,9 +611,15 @@ html.nav-open body{
 <section class="sec sec--alt" id="master">
   <div class="wrap">
     <div class="master">
-      <div class="master-photo">
-        主催者写真（organizer.webp）
-        <!-- 入手後：<img src="images/toppage/organizer.webp?v=20260919" alt="主催 新井だいき"> -->
+      <div class="master-photo" id="masterSlides" aria-roledescription="スライドショー" aria-label="主催 新井だいきの写真">
+        <img class="slide is-active" src="images/organizer/organizer-01-illustration.jpg?v=20261002" alt="ゴルフクラブを持つ新井だいきのイラスト" width="626" height="909">
+        <img class="slide" src="images/organizer/organizer-02-imamiya-ebisu.jpg?v=20261002" alt="今宮戎神社で福笹の袋を掲げる新井だいき" width="768" height="1024" loading="lazy">
+        <img class="slide slide--golf" src="images/organizer/organizer-03-golf.jpg?v=20261002" alt="ゴルフ場でアプローチショットを打つ新井だいき" width="576" height="1024" loading="lazy">
+        <div class="slide-dots" role="group" aria-label="表示する写真を選ぶ">
+          <button type="button" aria-label="1枚目を表示" aria-current="true"></button>
+          <button type="button" aria-label="2枚目を表示"></button>
+          <button type="button" aria-label="3枚目を表示"></button>
+        </div>
       </div>
       <div>
         <h2 class="sec-head sec-head--left" style="margin-bottom:28px"><span class="sec-en">The Master</span><span class="sec-jp">主催者紹介</span></h2>
@@ -1011,6 +1021,32 @@ html.nav-open body{
   document.addEventListener('keydown', function(e){
     if (e.key === 'Escape' && btn.getAttribute('aria-expanded') === 'true') { setMenu(false); btn.focus(); }
   });
+
+  /* ---------- 主催者写真：自動スライドショー ---------- */
+  var slideBox = document.getElementById('masterSlides');
+  if (slideBox) {
+    var slides = slideBox.querySelectorAll('.slide');
+    var dots = slideBox.querySelectorAll('.slide-dots button');
+    var current = 0;
+    var timer = null;
+    var showSlide = function(index){
+      slides[current].classList.remove('is-active');
+      dots[current].removeAttribute('aria-current');
+      current = (index + slides.length) % slides.length;
+      slides[current].classList.add('is-active');
+      dots[current].setAttribute('aria-current', 'true');
+    };
+    var startSlides = function(){
+      if (reduceMotion || timer) return;
+      timer = setInterval(function(){ showSlide(current + 1); }, 4500);
+    };
+    var stopSlides = function(){ clearInterval(timer); timer = null; };
+    dots.forEach(function(dot, i){
+      dot.addEventListener('click', function(){ stopSlides(); showSlide(i); startSlides(); });
+    });
+    document.addEventListener('visibilitychange', function(){ document.hidden ? stopSlides() : startSlides(); });
+    startSlides();
+  }
 
   /* ---------- スクロール出現（コンセプトを1行ずつ） ---------- */
   var lines = document.querySelectorAll('.reveal');
