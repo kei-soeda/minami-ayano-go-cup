@@ -388,6 +388,13 @@ html.nav-open body{
 .fame li.is-latest .ed{color:var(--gold)}
 .fame li.is-latest .nm{color:var(--gold-bright);font-size:1.3rem;text-shadow:var(--glow)}
 
+/* ---------- GALLERY ---------- */
+.gallery{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,2vw,20px)}
+.gallery li{aspect-ratio:4/3;position:relative;overflow:hidden;background:var(--bg);border:1px solid var(--gold);border-radius:4px}
+.gallery img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.gallery li:hover img{transform:scale(1.04)}
+.gallery .gallery-spring{object-position:center 75%}
+
 /* ---------- ENTRY ---------- */
 .entry{text-align:center;overflow:hidden}
 .entry-date{font-family:var(--mincho);font-weight:600;letter-spacing:.16em;color:var(--text);margin-top:1.4rem}
@@ -452,6 +459,7 @@ html.nav-open body{
   .foot-grid{grid-template-columns:1fr}
   .rows .r{grid-template-columns:1fr;gap:.15rem}
   .fame li{grid-template-columns:4.2em 1fr;gap:12px}
+  .gallery{grid-template-columns:1fr}
   .tbl th,.tbl td{padding:.6rem .5rem;font-size:.9rem}
   .price-compare{flex-direction:column;align-items:flex-start;gap:.4rem}
   .price-compare .price-arrow::before{content:"↓"}
@@ -545,6 +553,7 @@ html.nav-open body{
     <li><a href="#connect"><span class="en">Connect</span><span class="jp">交流サポート</span></a></li>
     <li><a href="#house-rules"><span class="en">House Rules</span><span class="jp">注意事項</span></a></li>
     <li><a href="#fame"><span class="en">Hall of Fame</span><span class="jp">歴代優勝者</span></a></li>
+    <li><a href="#gallery"><span class="en">Gallery</span><span class="jp">フォトギャラリー</span></a></li>
     <li><a href="#entry"><span class="en">Entry</span><span class="jp">参加申込</span></a></li>
   </ul>
 </nav>
@@ -892,6 +901,19 @@ html.nav-open body{
   </div>
 </section>
 
+<!-- ============ GALLERY ============ -->
+<section class="sec sec--wood wood" id="gallery">
+  <div class="wrap">
+    <h2 class="sec-head"><span class="sec-en">Gallery</span><span class="sec-jp">フォトギャラリー</span></h2>
+    <p class="sec-lead" style="text-align:center;margin-top:0;margin-bottom:2.4rem">これまでの開催の様子です。</p>
+    <ul class="gallery">
+      <li><img src="images/gallery/gallery-01-winter.webp?v=20261002" alt="冬の大会で、クラブハウス前に参加者が集まった集合写真" width="1200" height="900" loading="lazy"></li>
+      <li><img class="gallery-spring" src="images/gallery/gallery-02-spring.webp?v=20261002" alt="春の大会で、ツツジの咲くコースに参加者が集まった集合写真" width="554" height="508" loading="lazy"></li>
+      <li><img src="images/gallery/gallery-03-summer.webp?v=20261002" alt="夏の大会で、青空の下に参加者が集まった集合写真" width="1200" height="900" loading="lazy"></li>
+    </ul>
+  </div>
+</section>
+
 <!-- ============ ENTRY ============ -->
 <section class="sec entry" id="entry">
   <div class="glow-amber glow-amber--bottom" aria-hidden="true"></div>
@@ -956,6 +978,7 @@ html.nav-open body{
           <li><a href="#connect">交流サポート</a></li>
           <li><a href="#house-rules">注意事項</a></li>
           <li><a href="#fame">歴代優勝者</a></li>
+          <li><a href="#gallery">フォトギャラリー</a></li>
           <li><a href="#entry">参加申込</a></li>
         </ul>
       </div>
