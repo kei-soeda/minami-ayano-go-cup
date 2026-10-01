@@ -308,8 +308,7 @@ html.nav-open body{
 
 /* ---------- SCOREBOARD ---------- */
 .score-grid{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr);gap:clamp(28px,5vw,56px);align-items:start}
-.champ-photo{aspect-ratio:3/4;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;
-  color:var(--text-muted);font-size:.78rem;text-align:center;padding:1rem;background:var(--bg);border:1px solid var(--gold);border-radius:4px}
+.champ-photo{aspect-ratio:3/4;position:relative;overflow:hidden;background:var(--bg);border:1px solid var(--gold);border-radius:4px}
 .champ-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .champ-cap{text-align:center;margin-top:1rem;color:var(--text-muted);letter-spacing:.1em;font-size:.85rem}
 .champ-cap b{display:block;font-family:var(--mincho);font-weight:600;font-size:1.5rem;color:var(--gold-bright);text-shadow:var(--glow);margin-top:.3rem}
@@ -400,10 +399,8 @@ html.nav-open body{
 .entry-openchat{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:2rem}
 .entry-openchat .btn b{font-size:1.05rem}
 .entry-qr{display:flex;flex-wrap:wrap;gap:24px;justify-content:center;margin-top:2.8rem}
-.qr-card{width:220px;background:#F7F4EC;border-radius:12px;padding:16px;text-align:center}
-.qr-img{aspect-ratio:1;width:100%;max-width:200px;margin:0 auto;display:flex;align-items:center;justify-content:center;
-  background:#EFE9DA;border:1px dashed var(--gold-dim);border-radius:6px;padding:10px;font-size:.7rem;color:#8A6E3B;text-align:center}
-.qr-img img{width:100%;height:100%;object-fit:contain}
+.qr-card{width:220px;background:#FFFFFF;border-radius:12px;padding:16px;text-align:center}
+.qr-img{display:block;width:100%;max-width:188px;height:auto;aspect-ratio:1;margin:0 auto;object-fit:contain}
 .qr-caption{font-size:.8rem;color:#3A332A;margin-top:.8rem}
 .qr-link{margin-top:.4rem;font-size:.82rem}
 .qr-link a{color:#7A5A2E;text-underline-offset:3px}
@@ -732,7 +729,7 @@ html.nav-open body{
     <h2 class="sec-head"><span class="sec-en">Scoreboard</span><span class="sec-jp">成績</span></h2>
     <div class="score-grid">
       <figure>
-        <div class="champ-photo">優勝者写真（champion-06.webp）<!-- <img src="images/champion/champion-06.webp?v=20260920" alt="第6回 優勝 阿部正和さん"> --></div>
+        <div class="champ-photo"><img src="images/champion/champion-06.webp?v=20261002" alt="ゴルフスイングをするゴルファーのシルエット" width="900" height="1200" loading="lazy"></div>
         <figcaption class="champ-cap">第6回 優勝<b>阿部正和さん</b></figcaption>
       </figure>
       <div>
@@ -919,12 +916,12 @@ html.nav-open body{
 
     <div class="entry-qr">
       <div class="qr-card">
-        <div class="qr-img">QRコード（line-openchat-qr.png）<!-- <img src="images/icon/line-openchat-qr.png?v=20260920" alt="LINEオープンチャット QRコード" width="200" height="200"> --></div>
+        <img class="qr-img" src="images/icon/line-openchat-qr.png?v=20261002" alt="LINEオープンチャット「Shot Bar Lian」のQRコード" width="900" height="900" loading="lazy">
         <p class="qr-caption">スマートフォンで読み取ってご参加ください</p>
-        <p class="qr-link"><a href="https://line.me/ti/g2/4Izh9GU7Be5tWISgETAAEv2m_LnlmfYEVl-0Pg?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default" target="_blank" rel="noopener noreferrer">LINEオープンチャットを開く</a></p>
+        <p class="qr-link"><a href="https://line.me/ti/g2/TC-o15DWCoqKK5ZChi_Quw9-D79nqLM5-RfKQA?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default" target="_blank" rel="noopener noreferrer">オープンチャット「Shot Bar Lian」を開く</a></p>
       </div>
       <div class="qr-card">
-        <div class="qr-img">QRコード（instagram-qr.png）<!-- <img src="images/icon/instagram-qr.png?v=20260920" alt="Instagram @lian.daiki QRコード" width="200" height="200"> --></div>
+        <img class="qr-img" src="images/icon/instagram-qr.png?v=20261002" alt="Instagram @lian.daiki のQRコード" width="499" height="499" loading="lazy">
         <p class="qr-caption">お店の最新情報はこちら</p>
         <p class="qr-link"><a href="https://www.instagram.com/lian.daiki/" target="_blank" rel="noopener noreferrer">Instagramを見る（@lian.daiki）</a></p>
       </div>
