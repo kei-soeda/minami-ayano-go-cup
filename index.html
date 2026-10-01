@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- 参加者名を載せるため、検索エンジンには表示しない -->
+<meta name="robots" content="noindex, nofollow">
 <title>第7回 ミナミの綾野剛コンペ｜2026年11月25日（水）開催</title>
 <meta name="description" content="「誰かの何かのキッカケに」をコンセプトに、年6回開催しているゴルフコンペ。第7回は2026年11月25日（水）ロータリーゴルフ倶楽部で開催。表彰式・2次会はshot bar Lian。参加者募集中。">
 <meta name="author" content="ミナミの綾野剛コンペ">
@@ -395,11 +397,47 @@ html.nav-open body{
 /* ---------- ENTRY ---------- */
 .entry{text-align:center;overflow:hidden}
 .entry-date{font-family:var(--mincho);font-weight:600;letter-spacing:.16em;color:var(--text);margin-top:1.4rem}
-.entry-cta{margin-top:2.2rem}
-.entry-cta .btn b{font-size:1.5rem}
-.entry-steps{list-style:none;max-width:30em;margin:2.4rem auto 0;text-align:left;font-size:.9rem;counter-reset:s;color:var(--text-muted)}
-.entry-steps li{counter-increment:s;padding:.6rem 0 .6rem 2.2em;position:relative;border-bottom:1px solid var(--line)}
-.entry-steps li::before{content:counter(s);position:absolute;left:0;top:.5rem;font-family:var(--en);font-weight:700;font-size:1.15rem;color:var(--gold)}
+/* 参加申込（参加者一覧と回答フォーム） */
+.entry-board{max-width:640px;margin:2.4rem auto 0;text-align:left}
+.entry-summary{display:flex;flex-wrap:wrap;justify-content:center;gap:0 1.6em;font-family:var(--mincho);font-weight:600;letter-spacing:.06em;color:var(--gold-bright)}
+.entry-summary span{white-space:nowrap}
+.entry-table th,.entry-table td{padding:.6rem .7rem}
+.entry-table thead th{font-size:.82rem;line-height:1.4;width:4.8rem}
+.entry-table thead th:first-child,.entry-table tbody th{text-align:left;width:auto}
+.entry-table td{white-space:nowrap;font-size:1.25rem;line-height:1}
+.entry-table td[data-answer="○"]{color:var(--gold-bright)}
+.entry-table td[data-answer="△"]{color:var(--text-muted)}
+.entry-table td[data-answer="×"]{color:var(--gold-dim)}
+.entry-name{color:var(--gold);text-align:left;text-decoration:underline;text-underline-offset:4px;word-break:break-all;transition:color .2s}
+.entry-name:hover{color:var(--gold-bright)}
+.entry-comment{display:block;font-size:.78rem;color:var(--text-muted);margin-top:.2rem;word-break:break-all}
+.entry-hint{text-align:center;margin-top:.8rem}
+.entry-form{margin-top:2.4rem;background:var(--bg-2);scroll-margin-top:calc(var(--header-h) + 16px)}
+.entry-form-title{font-family:var(--mincho);font-weight:600;font-size:1.05rem;letter-spacing:.1em;color:var(--gold-bright);text-align:center}
+.entry-field{display:block;border:0;min-width:0;margin-top:1.4rem}
+.entry-label{display:block;font-family:var(--mincho);font-weight:600;font-size:.92rem;letter-spacing:.08em;color:var(--gold);margin-bottom:.5rem}
+.entry-label small{font-family:var(--jp);font-weight:400;font-size:.76rem;letter-spacing:0;color:var(--text-muted);margin-left:.6em}
+.entry-form input[type="text"]{width:100%;font:inherit;font-size:16px;color:var(--text);background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:.6em .9em}
+.entry-form input[type="text"]:focus{outline:none;border-color:var(--gold);box-shadow:var(--glow)}
+.entry-choices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.entry-choices label{position:relative;cursor:pointer}
+.entry-choices input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.entry-choices span{display:flex;flex-direction:column;align-items:center;gap:.3em;padding:.7em 0 .6em;border:1px solid var(--line);border-radius:4px;
+  font-size:1.4rem;line-height:1;color:var(--text-muted);transition:background .2s,border-color .2s,color .2s}
+.entry-choices span small{font-size:.72rem;letter-spacing:.08em}
+.entry-choices input:checked + span{border-color:var(--gold);background:rgba(201,164,92,.14);color:var(--gold-bright);box-shadow:var(--glow)}
+.entry-choices input:focus-visible + span{outline:2px solid var(--gold);outline-offset:3px}
+.entry-trap{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.entry-message{min-height:1.6em;margin-top:1.2rem;text-align:center;font-size:.86rem;color:var(--gold-bright)}
+.entry-message.is-error{color:#E08A7A}
+.entry-actions{display:flex;flex-direction:column;align-items:center;gap:.9rem;margin-top:.6rem}
+.entry-actions .btn{min-width:min(100%,260px)}
+.entry-actions .btn b{font-size:1.4rem}
+.entry-sub{font-size:.84rem;color:var(--text-muted);text-decoration:underline;text-underline-offset:4px}
+.entry-sub:hover{color:var(--text)}
+.entry-sub--danger:hover{color:#E08A7A}
+.entry-form :disabled{cursor:not-allowed}
+.entry-form .btn:disabled{opacity:.5}
 .entry-openchat{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:2rem}
 .entry-openchat .btn b{font-size:1.05rem}
 .entry-qr{display:flex;flex-wrap:wrap;gap:24px;justify-content:center;margin-top:2.8rem}
@@ -880,16 +918,53 @@ html.nav-open body{
   <div class="wrap" style="position:relative">
     <h2 class="sec-head" style="margin-bottom:0"><span class="sec-en">Entry</span><span class="sec-jp">参加申込</span></h2>
     <p class="entry-date">第7回　2026年11月25日（水）</p>
-    <p class="sec-lead" style="text-align:center">参加の申し込みは、調整さんで受け付けています。<br>締切：【申込締切】</p>
-    <div class="entry-cta">
-      <!-- 【調整さんURL】が決まり次第、hrefに設定する -->
-      <a href="#" class="btn btn--fill"><b>Entry</b><small>参加可否を入力する（調整さんが開きます）</small></a>
+    <p class="sec-lead" style="text-align:center">お名前を入力して、○・△・× を選んでください。<br>締切：【申込締切】</p>
+
+    <div class="entry-board" id="entryBoard">
+      <p class="entry-summary" id="entrySummary" aria-live="polite">読み込み中…</p>
+      <table class="tbl entry-table" id="entryTable" hidden>
+        <caption class="sr-only">参加者一覧</caption>
+        <thead><tr><th scope="col">お名前</th><th scope="col">ゴルフ</th><th scope="col">表彰式<br>2次会</th></tr></thead>
+        <tbody id="entryRows"></tbody>
+      </table>
+      <p class="note entry-hint">自分の名前を押すと、回答を変更・削除できます。<br>組み合わせが決まり次第、このページでお知らせします。</p>
+
+      <form class="entry-form gold-frame" id="entryForm" novalidate>
+        <h3 class="entry-form-title" id="entryFormTitle">回答を入力する</h3>
+        <label class="entry-field">
+          <span class="entry-label">お名前<small>ニックネーム可・一覧に表示されます</small></span>
+          <input type="text" name="name" maxlength="20" autocomplete="nickname" required>
+        </label>
+        <fieldset class="entry-field">
+          <legend class="entry-label">ゴルフ</legend>
+          <div class="entry-choices">
+            <label><input type="radio" name="golf" value="○"><span>○<small>参加</small></span></label>
+            <label><input type="radio" name="golf" value="△"><span>△<small>未定</small></span></label>
+            <label><input type="radio" name="golf" value="×"><span>×<small>不参加</small></span></label>
+          </div>
+        </fieldset>
+        <fieldset class="entry-field">
+          <legend class="entry-label">表彰式・2次会</legend>
+          <div class="entry-choices">
+            <label><input type="radio" name="party" value="○"><span>○<small>参加</small></span></label>
+            <label><input type="radio" name="party" value="△"><span>△<small>未定</small></span></label>
+            <label><input type="radio" name="party" value="×"><span>×<small>不参加</small></span></label>
+          </div>
+        </fieldset>
+        <label class="entry-field">
+          <span class="entry-label">コメント<small>任意</small></span>
+          <input type="text" name="comment" maxlength="100">
+        </label>
+        <!-- ボット対策：人には見えない入力欄。値が入っていたら GAS 側で保存しない -->
+        <input class="entry-trap" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <p class="entry-message" id="entryMessage" role="status"></p>
+        <div class="entry-actions">
+          <button type="submit" class="btn btn--fill"><b>Entry</b><small id="entrySubmitLabel">回答する</small></button>
+          <button type="button" class="entry-sub" id="entryCancel" hidden>変更をやめる</button>
+          <button type="button" class="entry-sub entry-sub--danger" id="entryDelete" hidden>この回答を削除する</button>
+        </div>
+      </form>
     </div>
-    <ol class="entry-steps">
-      <li>上のボタンから調整さんのページを開きます。</li>
-      <li>お名前を入力し、参加可否を選びます。</li>
-      <li>組み合わせが決まり次第、このページでお知らせします。</li>
-    </ol>
 
     <div class="entry-openchat">
       <a class="btn" href="https://line.me/ti/g2/4Izh9GU7Be5tWISgETAAEv2m_LnlmfYEVl-0Pg?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default" target="_blank" rel="noopener noreferrer"><b>Open Chat</b><small>「ミナミの綾野剛コンペ」</small></a>
@@ -1014,6 +1089,151 @@ html.nav-open body{
     document.addEventListener('visibilitychange', function(){ document.hidden ? stopSlides() : startSlides(); });
     startSlides();
   });
+
+  /* ---------- 参加申込：GAS と連携した参加者一覧と回答フォーム ---------- */
+  /* 【GASのURL】gas/Code.gs をウェブアプリとしてデプロイした URL（https://script.google.com/macros/s/.../exec） */
+  var ENTRY_API_URL = '';
+  var entryBoard = document.getElementById('entryBoard');
+  if (entryBoard) setupEntryBoard(entryBoard, ENTRY_API_URL);
+
+  function setupEntryBoard(board, apiUrl){
+    var form = board.querySelector('#entryForm');
+    var table = board.querySelector('#entryTable');
+    var rows = board.querySelector('#entryRows');
+    var summary = board.querySelector('#entrySummary');
+    var message = board.querySelector('#entryMessage');
+    var formTitle = board.querySelector('#entryFormTitle');
+    var submitLabel = board.querySelector('#entrySubmitLabel');
+    var cancelBtn = board.querySelector('#entryCancel');
+    var deleteBtn = board.querySelector('#entryDelete');
+    var nameInput = form.elements.namedItem('name');
+    var entries = [];
+    var editing = null;
+
+    var setBusy = function(busy){
+      Array.prototype.forEach.call(form.elements, function(el){ el.disabled = busy; });
+    };
+    var showMessage = function(text, isError){
+      message.textContent = text;
+      message.classList.toggle('is-error', Boolean(isError));
+    };
+    var countAnswers = function(key, answer){
+      return entries.filter(function(entry){ return entry[key] === answer; }).length;
+    };
+
+    var renderSummary = function(){
+      if (!entries.length) { summary.textContent = 'まだ回答はありません。'; return; }
+      var golf = document.createElement('span');
+      var party = document.createElement('span');
+      golf.textContent = 'ゴルフ　○ ' + countAnswers('golf', '○') + '名 ／ △ ' + countAnswers('golf', '△') + '名';
+      party.textContent = '表彰式・2次会　○ ' + countAnswers('party', '○') + '名';
+      summary.replaceChildren(golf, party);
+    };
+    var renderRows = function(){
+      rows.textContent = '';
+      entries.forEach(function(entry){
+        var tr = document.createElement('tr');
+        var nameCell = document.createElement('th');
+        var nameBtn = document.createElement('button');
+        nameCell.scope = 'row';
+        nameBtn.type = 'button';
+        nameBtn.className = 'entry-name';
+        nameBtn.textContent = entry.name;
+        nameBtn.addEventListener('click', function(){ startEdit(entry); });
+        nameCell.appendChild(nameBtn);
+        if (entry.comment) {
+          var comment = document.createElement('small');
+          comment.className = 'entry-comment';
+          comment.textContent = entry.comment;
+          nameCell.appendChild(comment);
+        }
+        tr.appendChild(nameCell);
+        [entry.golf, entry.party].forEach(function(answer){
+          var td = document.createElement('td');
+          td.dataset.answer = answer;
+          td.textContent = answer;
+          tr.appendChild(td);
+        });
+        rows.appendChild(tr);
+      });
+      table.hidden = !entries.length;
+    };
+
+    /* payload を渡すと POST（登録・更新・削除）、省略すると GET（一覧の取得） */
+    var callApi = function(payload){
+      var options = payload ? { method: 'POST', body: JSON.stringify(payload) } : undefined;
+      return fetch(apiUrl, options)
+        .then(function(res){ return res.json(); })
+        .then(function(data){
+          if (!data.ok) throw new Error(data.error || '送信に失敗しました。');
+          entries = data.entries;
+          renderSummary();
+          renderRows();
+        });
+    };
+
+    var resetForm = function(){
+      editing = null;
+      form.reset();
+      formTitle.textContent = '回答を入力する';
+      submitLabel.textContent = '回答する';
+      cancelBtn.hidden = true;
+      deleteBtn.hidden = true;
+    };
+    var startEdit = function(entry){
+      editing = entry;
+      nameInput.value = entry.name;
+      form.elements.namedItem('golf').value = entry.golf;
+      form.elements.namedItem('party').value = entry.party;
+      form.elements.namedItem('comment').value = entry.comment;
+      formTitle.textContent = entry.name + ' さんの回答を変更';
+      submitLabel.textContent = '変更する';
+      cancelBtn.hidden = false;
+      deleteBtn.hidden = false;
+      showMessage('');
+      form.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+      nameInput.focus({ preventScroll: true });
+    };
+
+    var send = function(payload, doneMessage){
+      setBusy(true);
+      showMessage('送信中…');
+      return callApi(payload)
+        .then(function(){ resetForm(); showMessage(doneMessage); })
+        .catch(function(err){ showMessage(err.message, true); })
+        .then(function(){ setBusy(false); });
+    };
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var data = new FormData(form);
+      var entry = {
+        id: editing ? editing.id : '',
+        name: String(data.get('name')).trim(),
+        golf: data.get('golf'),
+        party: data.get('party'),
+        comment: String(data.get('comment')).trim()
+      };
+      if (!entry.name) { showMessage('お名前を入力してください。', true); nameInput.focus(); return; }
+      if (!entry.golf || !entry.party) { showMessage('ゴルフと表彰式・2次会の ○・△・× を選んでください。', true); return; }
+      send({ action: 'save', entry: entry, website: data.get('website') },
+        editing ? '回答を変更しました。' : '回答を受け付けました。ありがとうございます！');
+    });
+    cancelBtn.addEventListener('click', function(){ resetForm(); showMessage(''); });
+    deleteBtn.addEventListener('click', function(){
+      if (!editing || !window.confirm('「' + editing.name + '」さんの回答を削除しますか？')) return;
+      send({ action: 'delete', id: editing.id }, '回答を削除しました。');
+    });
+
+    if (!apiUrl) {
+      summary.textContent = '申込フォームは準備中です。もうしばらくお待ちください。';
+      setBusy(true);
+      return;
+    }
+    callApi().catch(function(){
+      summary.textContent = '参加者一覧を読み込めませんでした。時間をおいて再度お試しください。';
+    });
+  }
 
   /* ---------- スクロール出現（コンセプトを1行ずつ） ---------- */
   var lines = document.querySelectorAll('.reveal');
