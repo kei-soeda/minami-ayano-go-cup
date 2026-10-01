@@ -13,7 +13,7 @@ B案（深夜ミナミ風）の構成をベースに、A案のブラック＋ゴ
 | `designs.html` | 旧デザイン案（Type A / B / C）の比較トップ |
 | `type-a.html` / `type-b.html` / `type-c.html` | 旧デザイン案 |
 | `images/emblems/` | 旧デザイン案のエンブレム画像 |
-| `images/icon/` | favicon / apple-touch-icon / OGP 用（未配置） |
+| `images/icon/` | ロゴ（logo.webp）・favicon・apple-touch-icon・OGP・QRコード |
 
 ## 未確定項目の洗い出し
 
