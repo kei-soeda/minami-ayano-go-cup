@@ -297,8 +297,6 @@ html.nav-open body{
 /* ---------- SPONSOR ---------- */
 .sponsor{max-width:760px;margin:0 auto;text-align:center}
 .sponsor .quote{text-align:left;max-width:34em;margin:0 auto}
-.sponsor-contact{margin-top:1.6rem;font-family:var(--mincho);font-weight:600;letter-spacing:.1em;color:var(--gold-bright)}
-
 /* ---------- CONNECT ---------- */
 .connect-cards{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:2.2rem}
 .connect-cards li{padding:28px 22px;text-align:center;font-family:var(--mincho);font-weight:600;font-size:1.02rem;letter-spacing:.08em;color:var(--text);line-height:1.8;
