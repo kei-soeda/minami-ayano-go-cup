@@ -202,7 +202,7 @@ html.nav-open body{
 .hero-info dt{font-family:var(--en);font-weight:700;font-size:.85rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dim)}
 .hero-info dd{font-size:.92rem;color:var(--text);line-height:1.5;margin-top:.35rem}
 .hero-info dd .num{display:block;font-size:1.5rem;color:var(--gold-bright)}
-.hero-cta{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;align-items:center}
+.hero-cta{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;width:fit-content;max-width:100%;margin-left:auto;margin-right:auto}
 .scroll-hint{position:relative;z-index:2;padding-bottom:28px;text-align:center;font-family:var(--en);font-weight:700;font-size:.78rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-dim)}
 
 /* ---------- CONCEPT ---------- */
@@ -420,7 +420,7 @@ html.nav-open body{
   .hero-info div:nth-child(odd){border-left:0}
   .hero-info div:nth-child(n+3){border-top:1px solid var(--line)}
   .points,.connect-cards{grid-template-columns:1fr}
-  .entry-openchat{grid-template-columns:1fr}
+  .hero-cta,.entry-openchat{grid-template-columns:1fr}
   .entry-qr{flex-direction:column;align-items:center}
   .qr-card{width:100%;max-width:240px}
   .nav-list{grid-template-columns:1fr}
