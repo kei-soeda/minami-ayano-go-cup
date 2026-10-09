@@ -373,7 +373,7 @@ html.nav-open body{
 .entry-sub--danger:hover{color:#E08A7A}
 .entry-form :disabled{cursor:not-allowed}
 .entry-form .btn:disabled{opacity:.5}
-.entry-openchat{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:2rem}
+.entry-openchat{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;width:fit-content;max-width:100%;margin:2rem auto 0}
 .entry-openchat .btn b{font-size:1.05rem}
 .entry-qr{display:flex;flex-wrap:wrap;gap:24px;justify-content:center;margin-top:2.8rem}
 .qr-card{width:220px;background:#FFFFFF;border-radius:12px;padding:16px;text-align:center}
@@ -420,6 +420,7 @@ html.nav-open body{
   .hero-info div:nth-child(odd){border-left:0}
   .hero-info div:nth-child(n+3){border-top:1px solid var(--line)}
   .points,.connect-cards{grid-template-columns:1fr}
+  .entry-openchat{grid-template-columns:1fr}
   .entry-qr{flex-direction:column;align-items:center}
   .qr-card{width:100%;max-width:240px}
   .nav-list{grid-template-columns:1fr}
