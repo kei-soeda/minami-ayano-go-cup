@@ -227,7 +227,8 @@ html.nav-open body{
 .slide-dots button[aria-current="true"]{background:var(--gold)}
 .master-name{font-family:var(--mincho);font-weight:600;font-size:clamp(1.9rem,4.6vw,2.8rem);letter-spacing:.14em;line-height:1.35;color:var(--text)}
 .master-titles{list-style:none;margin-top:.9rem;border-left:2px solid var(--gold);padding-left:1rem;color:var(--text-muted);font-size:.92rem}
-.master-profile{margin-top:1.6rem;max-width:36em;color:var(--text-muted)}
+.master-profile{margin-top:1.6rem;max-width:36em;color:var(--text);word-break:auto-phrase}
+.master-profile p+p{margin-top:.6em}
 
 /* ---------- INFORMATION ---------- */
 .next{text-align:center;margin-bottom:clamp(44px,6vw,68px)}
