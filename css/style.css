@@ -195,6 +195,7 @@ html.nav-open body{
 .hero-title .jp{display:block;font-family:var(--mincho);font-weight:600;font-size:clamp(1.05rem,2.6vw,1.5rem);letter-spacing:.08em;color:var(--text);margin-top:.7rem}
 .hero-copy{font-family:var(--mincho);font-weight:600;font-size:clamp(1rem,2.2vw,1.2rem);letter-spacing:.14em;color:var(--gold-bright);margin-top:1.5rem}
 .hero-lead{max-width:38em;margin:.9rem auto 0;font-size:.9rem;color:var(--text-muted);text-wrap:pretty}
+.hero-lead .ph{display:inline-block}
 .hero-info{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:2.4rem auto 2.2rem;width:100%;max-width:900px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .hero-info div{padding:1rem 12px;min-width:0}
 .hero-info div+div{border-left:1px solid var(--line)}
