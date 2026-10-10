@@ -31,7 +31,7 @@ B案（深夜ミナミ風）の構成をベースに、A案のブラック＋ゴ
 
 調整さんの代わりに、参加申込ページ（`entry.html`）で参加可否（ゴルフ／表彰式・2次会の ○△×）を受け付ける。
 回答は Google スプレッドシートに保存され、申込ページの参加者一覧に表示名とコメントが公開される。
-LINE などで申込を案内するときは https://kei-soeda.github.io/minami-ayano-go-cup/entry.html を送る。
+LINE などで申込を案内するときは https://minami-ayano-go.github.io/competition202611/entry.html を送る。
 サイトは `noindex` を指定しており、検索エンジンには表示されない。
 
 ### 初回セットアップ
@@ -56,8 +56,8 @@ LINE などで申込を案内するときは https://kei-soeda.github.io/minami-
 
 ## 公開 URL
 
-- 本番: https://kei-soeda.github.io/minami-ayano-go-cup/
-- 旧デザイン案: https://kei-soeda.github.io/minami-ayano-go-cup/designs.html
+- 本番: https://minami-ayano-go.github.io/competition202611/
+- 旧デザイン案: https://minami-ayano-go.github.io/competition202611/designs.html
 
 ## ローカル確認
 
